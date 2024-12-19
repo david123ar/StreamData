@@ -28,7 +28,7 @@ const db = mysql.createConnection({
   const { totalPages, data } = response.data.results;
 
   // Step 2: Iterate through pages
-  for (let pageNum = 6; pageNum <= totalPages; pageNum++) {
+  for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
     const pageData = await axios.get(`${baseUrl.replace('page=1', `page=${pageNum}`)}`);
     const animeList = pageData.data.results.data;
 
