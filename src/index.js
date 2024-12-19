@@ -1,11 +1,11 @@
 const axios = require('axios');
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core'); // Use puppeteer-core for specifying executablePath
 const mysql = require('mysql2'); // MySQL package
 
 const baseUrl = 'https://vimal.animoon.me/api/az-list?page=1'; // Anime list API
 const infoUrl = 'https://hianimes.animoon.me/anime/info?id='; // Anime info API
 const episodesUrl = 'https://hianimes.animoon.me/anime/episodes/'; // Episodes API
-const watchUrl = 'https://gojo.wtf/watch'; // Watch page URL
+const watchUrl = 'https://gojo.wtf/watch/'; // Watch page URL
 const providers = ['vibe', 'roro', 'zaza', 'shashh']; // List of providers
 
 // MySQL connection setup
@@ -28,7 +28,7 @@ const db = mysql.createConnection({
   const { totalPages, data } = response.data.results;
 
   // Step 2: Iterate through pages
-  for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+  for (let pageNum = 6; pageNum <= totalPages; pageNum++) {
     const pageData = await axios.get(`${baseUrl.replace('page=1', `page=${pageNum}`)}`);
     const animeList = pageData.data.results.data;
 
@@ -45,21 +45,28 @@ const db = mysql.createConnection({
         // Step 4: Use Puppeteer to find anime link
         animeLink = await fetchAnimeLinkWithPuppeteer(name);
         if (!animeLink) {
-          console.log(`Failed to find anime link for ${name}. Skipping...`);
-          continue;
+          console.log(`No valid anime link found for "${name}". Skipping this anime.`);
+          continue; // Skip this anime and move to the next one
         }
       }
 
-      // Step 5: Fetch episodes
+      // Skip to the next anime if no valid anime link is found (Anilist ID 0 and no Gojo link)
+      if (animeLink === 0 || !animeLink) {
+        console.log(`Skipping anime: ${name}, no valid anime link.`);
+        continue; // Skip to the next anime if no valid anime link is found
+      }
+
+      // Step 6: Fetch episodes if animeLink is valid
       const episodesData = await axios.get(`${episodesUrl}${animeId}`);
       const { episodes } = episodesData.data;
 
+      // Process episodes only if animeLink is valid
       for (const episode of episodes) {
         const ep = episode.number;
 
-        // Step 6: Visit each provider's URL
+        // Step 7: Visit each provider's URL if animeLink is valid
         for (const provider of providers) {
-          const watchPageUrl = `${watchUrl}${animeLink}?ep=${ep}&provider=${provider}`.replace('/anime/', '/');
+          const watchPageUrl = `${watchUrl}${animeLink}?ep=${ep}&provider=${provider}`.replace('//anime/', '/');
           console.log(`Visiting: ${watchPageUrl} for provider: ${provider}`);
 
           try {
@@ -85,14 +92,17 @@ const db = mysql.createConnection({
     }
   }
 
-  // Step 7: Log results
+  // Step 8: Log results
   logResults(allResults);
   db.end();
 })();
 
 // Function to fetch anime link using Puppeteer by searching HTML content
 async function fetchAnimeLinkWithPuppeteer(animeName) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    executablePath: '/usr/bin/google-chrome' // Use the installed Chrome version
+  });
   const page = await browser.newPage();
 
   const searchUrl = `https://gojo.wtf/search?query=${animeName}`;
@@ -122,7 +132,10 @@ async function fetchAnimeLinkWithPuppeteer(animeName) {
 
 // Function to extract m3u8 and tiddies URLs using Puppeteer
 async function extractM3u8Urls(url) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    executablePath: '/usr/bin/google-chrome' // Use the installed Chrome version
+  });
   const page = await browser.newPage();
 
   const m3u8Urls = [];
@@ -170,13 +183,13 @@ async function storeEpisodeDataInDatabase(animeId, episode, provider, m3u8Urls, 
 }
 
 // Function to store errored episode in MySQL database
-async function storeErroredEpisode(animeId, episode, provider, errorMessage) {
+async function storeErroredEpisode(animeId, episodeNumber, provider, errorMessage) {
   return new Promise((resolve, reject) => {
     const query = `
       INSERT INTO errored_episodes (anime_id, episode_number, provider, error_message)
       VALUES (?, ?, ?, ?)
     `;
-    db.execute(query, [animeId, episode, provider, errorMessage], (err, result) => {
+    db.execute(query, [animeId, episodeNumber, provider, errorMessage], (err, result) => {
       if (err) {
         reject(err);
       } else {
