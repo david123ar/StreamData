@@ -1,0 +1,17 @@
+{
+    "name": "puppeteer-extractor",
+    "version": "1.0.0",
+    "description": "Extract .m3u8 URLs and specific network requests using Puppeteer.",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.7.9",
+        "cheerio": "^1.0.0",
+        "mysql2": "^3.11.5",
+        "puppeteer": "^21.3.8"
+    }
+}

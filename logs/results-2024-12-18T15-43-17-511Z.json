@@ -1,0 +1,41 @@
+{
+  "m3u8Urls": [
+    "https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.m3u8",
+    "https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.720.m3u8",
+    "https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.1080.m3u8",
+    "https://zaza.gojo.wtf/https://az1.1stkmgv1.com/anime/2023/12/19/playlist_1.mp4-658141144dd35-1702969620_.m3u8",
+    "https://crox.gojo.wtf/https://www112.anzeat.pro/streamhls/ec695a488f5a5cedd85ee019f4e32bbd/ep.1.1709219096.m3u8",
+    "https://crox.gojo.wtf/https://www112.anzeat.pro/streamhls/ec695a488f5a5cedd85ee019f4e32bbd/ep.1.1709219096.720.m3u8",
+    "https://crox.gojo.wtf/https://www112.anzeat.pro/streamhls/ec695a488f5a5cedd85ee019f4e32bbd/ep.1.1709219096.1080.m3u8"
+  ],
+  "tiddiesUrls": [
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=undefined&id=145260&num=1&subType=sub&watchId=null&dub_id=null",
+      "responseBody": "{}"
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=vibe&id=145260&num=1&subType=sub&watchId=kuro-no-shoukanshi-episode-1&dub_id=null",
+      "responseBody": "{\"sources\":[{\"url\":\"https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.m3u8\",\"quality\":\"master\",\"type\":\"sub\"}],\"skips\":{\"op\":{\"startTime\":0,\"endTime\":0},\"ed\":{\"startTime\":1329,\"endTime\":1420}}}"
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=undefined&id=145260&num=1&subType=sub&watchId=null&dub_id=null",
+      "responseBody": "{}"
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=undefined&id=145260&num=1&subType=sub&watchId=null&dub_id=null",
+      "responseBody": "{}"
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=zaza&id=145260&num=1&subType=sub&watchId=epi-1-71970&dub_id=epi-1dub-187770",
+      "responseBody": "{\"sources\":[{\"quality\":\"master\",\"url\":\"https://zaza.gojo.wtf/https://az1.1stkmgv1.com/anime/2023/12/19/playlist_1.mp4-658141144dd35-1702969620_.m3u8\"}],\"skips\":{\"op\":{\"startTime\":0,\"endTime\":0},\"ed\":{\"startTime\":1329,\"endTime\":1420}}}"
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=undefined&id=145260&num=1&subType=sub&watchId=null&dub_id=null",
+      "responseBody": "{}"
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=shashh&id=145260&num=1&subType=sub&watchId=kuro-no-shoukanshi-episode-1&dub_id=null",
+      "responseBody": "{\"sources\":[{\"quality\":\"master\",\"url\":\"https://crox.gojo.wtf/https://www112.anzeat.pro/streamhls/ec695a488f5a5cedd85ee019f4e32bbd/ep.1.1709219096.m3u8\"},{\"quality\":\"backup\",\"url\":\"https://crox.gojo.wtf/https://www112.anicdnstream.info/videos/hls/ws0BwzFyysUfdQ19-SiKVg/1734550989/188932/ec695a488f5a5cedd85ee019f4e32bbd/ep.1.1709219096.m3u8\"}],\"thumbs\":\"https://cache.anicache.net/images/4e2e716b9ce5ff2de8b6a95a5ecf937f/1.vtt\",\"skips\":{\"op\":{\"startTime\":0,\"endTime\":0},\"ed\":{\"startTime\":1329,\"endTime\":1420}}}"
+    }
+  ]
+}

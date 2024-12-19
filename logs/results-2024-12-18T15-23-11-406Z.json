@@ -1,0 +1,17 @@
+{
+  "m3u8Urls": [
+    "https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.m3u8",
+    "https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.720.m3u8",
+    "https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.1080.m3u8"
+  ],
+  "tiddiesUrls": [
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=undefined&id=145260&num=1&subType=sub&watchId=null&dub_id=null",
+      "responseBody": "{}"
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=vibe&id=145260&num=1&subType=sub&watchId=kuro-no-shoukanshi-episode-1&dub_id=null",
+      "responseBody": "{\"sources\":[{\"url\":\"https://a2.ascdn789.store/29d1e2357d7c14db51e885053a58ec67/43219238a499b03ed9b587ccca6eddc6/e1.17157607830.0.m3u8\",\"quality\":\"master\",\"type\":\"sub\"}],\"skips\":{\"op\":{\"startTime\":0,\"endTime\":0},\"ed\":{\"startTime\":1329,\"endTime\":1420}}}"
+    }
+  ]
+}

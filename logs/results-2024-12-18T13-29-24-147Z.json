@@ -1,0 +1,32 @@
+{
+  "m3u8Urls": [
+    "https://rox.gojo.wtf/https://mmd.biananset.net/_v7/be912c01a22017389e0109108efe8158dc2a8c121d45a9735d1f94fa88bf03eac1f4b187633ace32d7ca3957e5ad5d28079d2af2b1e1b53f81d6c0e055373b8a97cbaf357b50538541a81f86de19f62898c69fd1aa66906d9358364251e86266715e47b28088e8d0b514905cdb90333291af5e0ed271a11f1c4416acafa5d62e/master.m3u8",
+    "https://rox.gojo.wtf/https://mmd.biananset.net/_v7/be912c01a22017389e0109108efe8158dc2a8c121d45a9735d1f94fa88bf03eac1f4b187633ace32d7ca3957e5ad5d28079d2af2b1e1b53f81d6c0e055373b8a97cbaf357b50538541a81f86de19f62898c69fd1aa66906d9358364251e86266715e47b28088e8d0b514905cdb90333291af5e0ed271a11f1c4416acafa5d62e/index-f1-v1-a1.m3u8"
+  ],
+  "tiddiesUrls": [
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=undefined&id=145260&num=1&subType=sub&watchId=null&dub_id=null",
+      "headers": {
+        "sec-ch-ua": "\"Not A(Brand\";v=\"99\", \"HeadlessChrome\";v=\"121\", \"Chromium\";v=\"121\"",
+        "accept": "application/json, text/plain, */*",
+        "referer": "https://gojo.wtf/",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/121.0.6167.85 Safari/537.36",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "origin": "https://gojo.wtf"
+      }
+    },
+    {
+      "url": "https://backend.gojo.wtf/api/anime/tiddies?provider=roro&id=145260&num=1&subType=sub&watchId=black-summoner-18088?ep=92676&dub_id=null",
+      "headers": {
+        "sec-ch-ua": "\"Not A(Brand\";v=\"99\", \"HeadlessChrome\";v=\"121\", \"Chromium\";v=\"121\"",
+        "accept": "application/json, text/plain, */*",
+        "referer": "https://gojo.wtf/",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/121.0.6167.85 Safari/537.36",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "origin": "https://gojo.wtf"
+      }
+    }
+  ]
+}
