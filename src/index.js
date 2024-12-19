@@ -100,15 +100,17 @@ const db = mysql.createConnection({
 // Function to fetch anime link using Puppeteer by searching HTML content
 async function fetchAnimeLinkWithPuppeteer(animeName) {
   const browser = await puppeteer.launch({
-    headless: false, // Run in non-headless mode
-    executablePath: '/usr/bin/google-chrome', // Path to the installed Chrome version
+    headless: true,  // Ensure headless mode is enabled
+    executablePath: '/usr/bin/google-chrome',  // Path to Google Chrome
     args: [
-      '--no-sandbox', // Disables sandboxing
-      '--disable-setuid-sandbox', // Disables setuid sandboxing
-      '--disable-infobars', // Disables infobars
-      '--disable-extensions', // Disables extensions
-      '--disable-gpu', // Disables GPU acceleration
-      '--remote-debugging-port=9222' // Enables remote debugging on port 9222
+      '--no-sandbox',  // Disable sandboxing
+      '--disable-setuid-sandbox',  // Disable setuid sandbox
+      '--disable-infobars',  // Disable info bars
+      '--disable-extensions',  // Disable extensions
+      '--disable-gpu',  // Disable GPU acceleration
+      '--remote-debugging-port=9222',  // Optional: enables remote debugging
+      '--headless',  // Ensure headless is explicitly set
+      '--disable-software-rasterizer',  // Optional: workaround for missing renderer
     ]
   });
   const page = await browser.newPage();
@@ -141,15 +143,17 @@ async function fetchAnimeLinkWithPuppeteer(animeName) {
 // Function to extract m3u8 and tiddies URLs using Puppeteer
 async function extractM3u8Urls(url) {
   const browser = await puppeteer.launch({
-    headless: false, // Run in non-headless mode
-    executablePath: '/usr/bin/google-chrome', // Path to the installed Chrome version
+    headless: true,  // Ensure headless mode is enabled
+    executablePath: '/usr/bin/google-chrome',  // Path to Google Chrome
     args: [
-      '--no-sandbox', // Disables sandboxing
-      '--disable-setuid-sandbox', // Disables setuid sandboxing
-      '--disable-infobars', // Disables infobars
-      '--disable-extensions', // Disables extensions
-      '--disable-gpu', // Disables GPU acceleration
-      '--remote-debugging-port=9222' // Enables remote debugging on port 9222
+      '--no-sandbox',  // Disable sandboxing
+      '--disable-setuid-sandbox',  // Disable setuid sandbox
+      '--disable-infobars',  // Disable info bars
+      '--disable-extensions',  // Disable extensions
+      '--disable-gpu',  // Disable GPU acceleration
+      '--remote-debugging-port=9222',  // Optional: enables remote debugging
+      '--headless',  // Ensure headless is explicitly set
+      '--disable-software-rasterizer',  // Optional: workaround for missing renderer
     ]
   });
   const page = await browser.newPage();
