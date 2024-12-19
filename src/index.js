@@ -100,8 +100,16 @@ const db = mysql.createConnection({
 // Function to fetch anime link using Puppeteer by searching HTML content
 async function fetchAnimeLinkWithPuppeteer(animeName) {
   const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: '/usr/bin/google-chrome' // Use the installed Chrome version
+    headless: false, // Run in non-headless mode
+    executablePath: '/usr/bin/google-chrome', // Path to the installed Chrome version
+    args: [
+      '--no-sandbox', // Disables sandboxing
+      '--disable-setuid-sandbox', // Disables setuid sandboxing
+      '--disable-infobars', // Disables infobars
+      '--disable-extensions', // Disables extensions
+      '--disable-gpu', // Disables GPU acceleration
+      '--remote-debugging-port=9222' // Enables remote debugging on port 9222
+    ]
   });
   const page = await browser.newPage();
 
@@ -133,8 +141,16 @@ async function fetchAnimeLinkWithPuppeteer(animeName) {
 // Function to extract m3u8 and tiddies URLs using Puppeteer
 async function extractM3u8Urls(url) {
   const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: '/usr/bin/google-chrome' // Use the installed Chrome version
+    headless: false, // Run in non-headless mode
+    executablePath: '/usr/bin/google-chrome', // Path to the installed Chrome version
+    args: [
+      '--no-sandbox', // Disables sandboxing
+      '--disable-setuid-sandbox', // Disables setuid sandboxing
+      '--disable-infobars', // Disables infobars
+      '--disable-extensions', // Disables extensions
+      '--disable-gpu', // Disables GPU acceleration
+      '--remote-debugging-port=9222' // Enables remote debugging on port 9222
+    ]
   });
   const page = await browser.newPage();
 
